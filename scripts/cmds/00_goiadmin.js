@@ -1,30 +1,24 @@
 module.exports = {
 	config: {
-		name: "goiadminv2",
-		version: "1.0",
-		author: "Cliff",
-		countDown: 5,
+		name: "goiadmin",
+		author: "𝗔𝗺𝗶𝗻𝘂𝗹 𝗦𝗼𝗿𝗱𝗮𝗿",
 		role: 0,
-		shortDescription: "sarcasm",
-		longDescription: "sarcasm",
-		category: "reply",
+		shortDescription: " ",
+		longDescription: "",
+		category: "BOT",
+		guide: "{pn}"
 	},
-	onStart: async function () {},
-	onChat: async function ({ event, message, getLang, api }) {
-		const msg = [
-			"Stop mentioning my creator, he's busy 😗",
-			"My Creator is currently offline 😢",
-			"𝖠𝗇𝗈𝗍𝗁𝖾𝗋 𝗍𝖺𝗀 𝗂𝗇 𝗆𝗒 𝖺𝖽𝗆𝗂𝗇, 𝗂 𝗐𝗂𝗅𝗅 𝗉𝗎𝗇𝖼𝗁 𝗒𝗈𝗎 🙂",
-			"busy pa ata yun kaya mag-antay ka",
-			"Sorry, naka bebetime pa don't disturb him 🙄",
-			"Do you like my creator thats why your tagging him? Why dont you add him https://www.facebook.com/profile.php?id=100071009500533 😏",
-			"Another tag in my Creator, i will kick your fucking ass"
-		];
 
-		const CliffRegex = /^(@HUSSAIN ꋂョ o.O. Torrevillas 󱢏)$/i;
-		if (event.body && CliffRegex.test(event.body)) {
-			api.setMessageReaction("😍", event.messageID, (err) => {}, true);
-			return api.sendMessage({ body: msg[Math.floor(Math.random() * msg.length)] }, event.threadID, event.messageID);
+onChat: function({ api, event }) {
+	if (event.senderID !== "100071009500533") {
+		var aid = ["100071009500533"];
+		for (const id of aid) {
+		if ( Object.keys(event.mentions) == id) {
+			var msg = ["❁Hᴜssᴀɪɴ ᬊᬁ বস এখন  বিজি জা বলার আমাকে বলতে পারেন_!!😼🥰","এতো মিনশন নাহ দিয়া সিংগেল ❁Hᴜssᴀɪɴ ᬊᬁ রে একটা গফ দে 😒 😏","Mantion_না দিয়ে সিরিয়াস প্রেম করতে চাইলে ইনবক্স","মেনশন দিসনা পারলে একটা গফ দে","Mantion_দিস না বাঁলপাঁক্না ❁Hᴜssᴀɪɴ ᬊᬁ প্রচুর বিজি 🥵🥀🤐"];
+			return api.sendMessage({body: msg[Math.floor(Math.random()*msg.length)]}, event.threadID, event.messageID);
 		}
-	},
+		}}
+},
+onStart: async function({}) {
+	}
 };
